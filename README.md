@@ -2,6 +2,10 @@
 
 后端上传 swagger 接口，前端通过 swagger 自动生成 service 接口文件
 
+## 使用方法
+
+src=>config.js，打开文件配置 swagger，和想要导出的文件名对应的 tags
+
 ## 需求点
 
 ### 用户需求点
