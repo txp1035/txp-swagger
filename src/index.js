@@ -17,6 +17,17 @@ function getStringGet(name, api, dec) {
 function getStringPost(name, api, dec) {
   return `\nexport async function ${name}(params) {\n  return request(\`${api}\`, {\n    method: 'POST',\n    body: params\n  });\n} // ${dec}\n`;
 } //post请求模板
+function mkdir() {
+  const hasDir = fs.existsSync('dist/');
+  if (!hasDir) {
+    fs.mkdir('dist/', function(err) {
+      if (err) {
+        return console.error('目录创建失败', err);
+      }
+      console.log('目录创建成功');
+    });
+  }
+}
 /**
  * @param  {String} name 文件名，包括后缀。
  * @param  {String} str 输入文件的字符串。
@@ -24,7 +35,7 @@ function getStringPost(name, api, dec) {
 function writeFile(name, str) {
   const directory = 'dist/';
   fs.writeFile(directory + name, str, function(err) {
-    if (err) console.log('写文件操作失败');
+    if (err) console.log('写文件操作失败', err);
     else console.log('写文件操作成功');
   });
 }
@@ -39,6 +50,7 @@ function generateFile(url, arr) {
   axios
     .get(url)
     .then(function(response) {
+      mkdir();
       const apiData = response.data.paths;
       const apiDataArr = Object.entries(apiData);
       //遍历数组，写入文件
