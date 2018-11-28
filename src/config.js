@@ -5,6 +5,7 @@ const config = {
     { name: 'purchase.js', tags: ['进货-购物车', '进货-进货单据', '进货-申请单据', '进货-退货单据'] }, //进货
     { name: 'promotion.js', tags: ['促销-优惠卷列表', '促销-优惠卷添加'] }, //促销
     { name: 'commodity.js', tags: ['5.0.1'] } //商品
-  ]
+  ],
+  type: 'mock' //services|mock
 };
 module.exports = config;
