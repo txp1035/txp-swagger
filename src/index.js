@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const CONFIG = require('./config');
 const ANTD = require('./template/antDesignPro');
+const CNAME = {};
 /**
  * @param  {String} name 模板方法名字
  * @param  {String} api 模板方法对应的api
@@ -61,8 +62,12 @@ function generateStringTag(oldStr, tag) {
   return str;
 }
 function generateString(oldStr, api, method, element, apiData) {
-  const name = generateName(api);
+  let name = generateName(api);
   const dec = element.summary;
+  if (name in CNAME) {
+    name = name + '_copy';
+  }
+  CNAME[name] = '';
   let str;
   switch (CONFIG.type) {
     case 'services':
@@ -70,6 +75,9 @@ function generateString(oldStr, api, method, element, apiData) {
       break;
     case 'mock':
       str = oldStr + ANTD['mock'][method](method, api, dec, apiData);
+      break;
+    case 'models':
+      str = oldStr + ANTD['models'](name);
       break;
 
     default:

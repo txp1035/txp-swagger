@@ -24,6 +24,9 @@ const antDesignPro = {
     post: (method, api, dec) => {
       return `\n'${method.toUpperCase()} ${api}':table,`;
     }
+  },
+  models: name => {
+    return `\n${name},`;
   }
 };
 
