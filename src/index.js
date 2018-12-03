@@ -64,7 +64,7 @@ function generateStringTag(oldStr, tag) {
 function generateString(oldStr, api, method, element, apiData) {
   let name = generateName(api);
   const dec = element.summary;
-  if (name in CNAME) {
+  while (name in CNAME) {
     name = name + '_copy';
   }
   CNAME[name] = '';
