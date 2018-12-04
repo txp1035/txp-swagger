@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const CONFIG = require('./config');
 const ANTD = require('./template/antDesignPro');
-const CNAME = {};
+let CNAME = {};
 /**
  * @param  {String} name 模板方法名字
  * @param  {String} api 模板方法对应的api
@@ -51,6 +51,9 @@ function generateName(api) {
     case 'delete':
       name = 'del';
       break;
+    case 'import':
+      name = 'imports';
+      break;
 
     default:
       break;
@@ -94,6 +97,7 @@ function generateFile(response) {
   //遍历数组，写入文件
   CONFIG.arr.forEach(element => {
     let str = '';
+    CNAME = {};
     //遍历标签，生成需要的字符串
     element.tags.forEach(tag => {
       str = generateStringTag(str, tag);
