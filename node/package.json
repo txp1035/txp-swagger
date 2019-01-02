@@ -4,7 +4,8 @@
   "description": "后端上传 swagger 接口，前端通过 swagger 自动生成 service 接口文件",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "hot": "supervisor src/index.js"
   },
   "repository": {
     "type": "git",
