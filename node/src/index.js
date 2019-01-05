@@ -1,9 +1,17 @@
-const Koa = require('koa');
-const app = new Koa();
+var Koa = require('koa');
+var Router = require('koa-router');
 
-// 响应
-app.use(ctx => {
-  ctx.body = 'Hello Koa';
-});
+var app = new Koa();
+var router = new Router();
+
+router
+  .get('/', (ctx, next) => {
+    ctx.body = 'Hello World!';
+  })
+  .get('/a', (ctx, next) => {
+    ctx.body = 'a';
+  });
+
+app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(3000);
