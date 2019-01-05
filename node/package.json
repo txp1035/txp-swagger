@@ -20,7 +20,7 @@
   "homepage": "https://github.com/ShawDanon/txp-swagger#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "express": "^4.16.4",
-    "koa": "^2.6.2"
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0"
   }
 }
