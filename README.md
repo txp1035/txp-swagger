@@ -18,7 +18,6 @@ mock 数据配置界面化、通过 swagger 生成 mock 数据、通过 swagger 
    > 新增项目接口：{name}
 2. 项目详情页面：
    > 项目详情列表显示接口：[{Method,URL,description,name}]
-3.
 
 ## 目录说明
 
